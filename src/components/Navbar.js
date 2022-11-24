@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Navbar() {
 
     const item = localStorage.getItem('token');
+    
     const [open, setOpen] = useState(false);
+    const openNav = () => { if (!open) setOpen(!open); }
+    useEffect(() => {
+        openNav();
+        //eslint-disable-next-line
+    }, []);
+
     let Links = [
         { name: "Home", link: "/" },
         { name: "About", link: "/about" },
@@ -45,7 +52,7 @@ export default function Navbar() {
                                 Links.map((link) => (
                                     <li key={link.name} className={`hover:text-black 
                                     ease-in-out duration-300 my-4 mx-5 hover:scale-110 
-                                    flex justify-center active:text-black`}>
+                                    flex justify-center active:text-black`} onClick={openNav}>
                                         <a href={link.link}>
                                             {link.name}
                                         </a>
