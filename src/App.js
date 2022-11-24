@@ -1,7 +1,9 @@
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
     <>
-      <h1 className="bg-black text-gray-500">Hi there, we are starting the navbar</h1>
+      <Navbar />
     </>
   );
 }
