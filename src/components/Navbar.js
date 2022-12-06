@@ -17,11 +17,10 @@ export default function Navbar(props) {
 
     return (
         <>
-            <div className={`bg-${mode === 'moon' ? 'white' : 'black'}
-            text-gray-${mode === 'moon' ? '600' : '300'} 
-            font-medium fixed top-0 left-0 right-0 py-3
-            transition-all duration-300 ${open ? 'shadow-md' : ''}
-            shadow-${mode === 'moon' ? 'black' : 'gray-200'}`}>
+            <div className={`${mode === 'moon' ? 'bg-white' : 'bg-black'}
+            ${mode === 'moon' ? 'text-gray-600' : 'text-gray-300'} 
+            font-medium fixed top-0 left-0 right-0 py-3 transition-all
+            duration-300 ${open ? 'shadow-md' : ''}`}>
 
                 <nav className='md:flex justify-between'>
 
@@ -29,8 +28,8 @@ export default function Navbar(props) {
                     <div className={`flex items-center text-center my-3 lg:ml-11
                     ease-in-out duration-500 md:hover:scale-110 cursor-pointer`}>
 
-                        <img src='logo.svg' alt='.' className='w-10 h-7 mr-1.5' />
-                        <Link to='/' className={`text-${mode === 'moon' ? 'black' : 'white'} 
+                        <Link to='/' className={
+                        `${mode === 'moon' ? 'text-black' : 'text-white'} 
                         ease-in-out duration-200`}>
                             NEWS | MONKEY
                         </Link>
@@ -39,38 +38,39 @@ export default function Navbar(props) {
 
                     <i className={`fa-solid fa-${open ? 'bars' : 'xmark'} 
                     ease-in-out duration-300 cursor-pointer hover:scale-110
-                    fixed top-6 right-2 text-${open ? 'xl' : '2xl'} md:hidden 
-                    hover:text-${mode === 'moon' ? 'black' : 'white'}`}
+                    fixed top-6 right-2 ${open ? 'text-xl' : 'text-2xl'} md:hidden 
+                    ${mode === 'moon' ? ' hover:text-black' : 'hover:text-white'}`}
                         onClick={() => setOpen(!open)}></i>
 
                     {/* list of the pages */}
                     <div className={`list absolute md:top-3 
                     md:right-3 transition-all duration-300 lg:mr-11
-                    bg-${mode === 'moon' ? 'white' : 'black'} 
+                    ${mode === 'moon' ? 'bg-white' : 'bg-black'} 
                     ${open ? 'activeN' : 'activeY'}`}>
 
 
                         <ul className='md:flex md:items-center'>
-                            <li className={`hover:text-${mode === 'moon' ? 'black' : 'white'} 
-                            ease-in-out duration-300 my-4 mx-5 hover:scale-110 flex justify-center
+                            <li className={`${mode === 'moon' ? 'hover:text-black' :
+                            'hover:text-white'} ease-in-out duration-300 my-4 mx-5 
+                            hover:scale-110 flex justify-center
                             ${location.pathname === '/Home' ? `scale-125
-                            text-${mode === 'moon' ? 'black' : 'white'}` : ''}`}
+                            ${mode === 'moon' ? 'text-black' : 'text-white'}` : ''}`}
                                 onClick={openNav}>
                                 <Link to="/Home">Home</Link>
                             </li>
                             
-                            <li className={`hover:text-${mode === 'moon' ? 'black' : 'white'} 
-                            ease-in-out duration-300 my-4 mx-5 hover:scale-110 flex justify-center
-                            ${location.pathname === '/About' ? `scale-125
-                            text-${mode === 'moon' ? 'black' : 'white'}` : ''}`}
+                            <li className={`${mode === 'moon' ? 'hover:text-black' : 
+                            'hover:text-white'} ease-in-out duration-300 my-4 mx-5 
+                            hover:scale-110 flex justify-center${location.pathname === '/About' ? `scale-125
+                            ${mode === 'moon' ? 'text-black' : 'text-white'}` : ''}`}
                                 onClick={openNav}>
                                 <Link to="/About">About</Link>
                             </li>
                             
-                            <li className={`hover:text-${mode === 'moon' ? 'black' : 'white'} 
-                            ease-in-out duration-300 my-4 mx-5 hover:scale-110 flex justify-center
-                            ${location.pathname === '/Contact' ? `scale-125
-                            text-${mode === 'moon' ? 'black' : 'white'}` : ''}`}
+                            <li className={`${mode === 'moon' ? 'hover:text-black' : 
+                            'hover:text-white'} ease-in-out duration-300 my-4 mx-5 
+                            hover:scale-110 flex justify-center${location.pathname === '/Contact' ? `scale-125
+                            ${mode === 'moon' ? 'text-black' : 'text-white'}` : ''}`}
                                 onClick={openNav}>
                                 <Link to="/Contact">Contact</Link>
                             </li>
